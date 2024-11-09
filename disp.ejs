@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="app.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .d{
+            background-color: aliceblue;
+            display: flex;
+            height: 77.99vh;
+
+        }
+        .main{
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            margin: auto;
+            margin-top: 15vh;
+            width: 100%;
+            overflow: scroll;
+            scrollbar-width: none;
+            
+        }
+        table,.a,th{
+            border: 1px ridge;
+            padding: 5px;
+            border-radius: 5px;
+           
+        }
+        table{
+            border: none;
+            border-radius: 5px;
+        }
+        .a,th{
+            border: none;
+            background: linear-gradient(rgba(181, 248, 237, 0.774),rgba(4, 93, 123, 0.749));
+        }
+        th{
+            padding: 14px;
+        }
+        .c,.b,button{
+            background-color: none;
+            border: none;
+            background: none;
+        }
+    </style>
+</head>
+<body>
+    <%-include("nav") %>
+    <div class="d">
+    <div class="main">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th>Age</th>
+                <th>Qualified Year</th>
+                <th>Specilization</th>
+                <th>Adress</th>
+                <th>Expected Salaray</th>
+                <th>Phone Number</th>
+            </tr>
+            <%
+            data.forEach((item)=>{%>
+                <tr>
+                <td class="a"><%=item.name%></td>
+                <td class="a"><%=item._id%></td>
+                <td class="a"><%=item.gen%></td>
+                <td class="a"><%=item.age%></td>
+                <td class="a"><%=item.qualify%></td>
+                <td class="a"><%=item.spec%></td>
+                <td class="a"><%=item.place%></td>
+                <td class="a"><%=item.expsal%></td>
+                <td class="a"><%=item.phno%></td>
+                <td class="b"><button><a href=<%= `/edit/${item._id}`%> ><i class="fa-solid fa-pen-to-square" style="color: rgb(0, 70, 247); padding: 4px; font-size: 17px;"></i></a></button></td>
+                <td class="c"><button><a href=<%= `/del/${item._id}`%> ><i class="fa-solid fa-trash" style="color: red; font-size: 17px;"></i></a></button></td>
+            </tr>
+            <%})
+            %>
+        </table>
+    </div>
+    </div>
+    <div class="fo"><%-include("Foot") %></div>
+</body>
+</html>

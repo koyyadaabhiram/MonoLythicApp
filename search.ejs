@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            outline: none;
+        }
+        form{
+            display: flex;
+            margin-top: 30vh;
+            justify-content: center;
+        }
+        input{
+            width: 40%;
+            font-size: 14px;
+            padding: 8px;
+            border-radius: 10px;
+            border: 1px ridge;
+            
+        }
+        button{
+            padding: 5px;
+            width: 50px;
+            background: none;
+            border: none;
+            
+        }
+        .main{
+            display: flex;
+            justify-content: center;
+            padding: 10vh;
+        }
+        table,.a,th{
+            border: 1px ridge;
+            padding: 5px;
+            border-radius: 5px;
+        
+        }
+        table,td{
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        .a,th{
+            border: none;
+            background: linear-gradient(rgba(181, 248, 237, 0.774),rgba(4, 93, 123, 0.749));
+        }
+        th{
+            padding: 14px;
+        }
+        .xv{
+            width: 100%;
+            height: 48vh;
+            color: rgb(0, 13, 25);
+            
+        }
+    </style>
+</head>
+<body>
+    <%-include("nav")%>
+<div class="xv">
+    <form action="/search">
+        <input type="text" name="name"/>
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
+    <%if(data!="")
+    {if(data)
+        {
+        %>
+        <div class="main">
+            <table>
+                <tr class="a"><th>Name</th><td><%=data.name%></td></tr>
+                <tr class="a"><th>E-Mail</th><td><%=data._id%></td></tr>
+                <tr class="a"><th>Gender</th><td><%=data.gen%></td></tr>
+                <tr class="a"><th>Age</th><td><%=data.age%></td></tr>
+            </table>
+    </div>
+    <%}
+    else{%>
+        <div class="main" style="color: red;">Please Enter Valid Name !!</div>
+   <% }
+    }
+    %>
+</div>
+    <div class="fo"><%-include("Foot") %></div>
+
+</body>
+</html>
